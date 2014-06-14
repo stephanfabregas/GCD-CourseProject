@@ -56,7 +56,7 @@ which.set - factor, 10299 rows, 2 levels, key to source of data as test or train
 ### Extract mean and standard deviation variables
 The current working directory is still set to "UCI HAR Dataset", load the "features.txt" file to assist is selecting variables that are for means and standard deviations measures, and later, in naming the variables appropriately.
 
-The grep() function is used to identify rows in the features files that contain "-mean" or "-std", and store the information in the columns variable. This includes measures of meanFreq (which is described as ""), but excludes the angle measures on mean variables, as these are actually measures of angles, not means.
+The grep() function is used to identify rows in the features files that contain "-mean" or "-std", and store the information in the columns variable. This includes measures of meanFreq, but excludes the angle measures on mean variables, as these are actually measures of angles, not means.
 
 With the proper variables identified, we extract those columns, by index, from the combined data set. Note that the data set contains two columns to the left of the variables in question (namely, subject id and activity), so the columns variable needs to be adjusted to index the correct columns to extract. Note also that the variables "subject.id", "activity", and "which.set" need to be extracted as well.
 
