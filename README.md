@@ -3,15 +3,20 @@
 
 ## Introduction
 *Author*: Stephan E. Fabregas
+
 *Class*: Getting and Cleaning Data, Coursera, June 2014
+
 *Notes*: The R script was created and tested with R 3.1.0 on Linux Mint 14
 
 This file describes the process for creating the tidy data set from the Human Activity Recognition Using Smartphones data set according to the instructions provided for the Course Project for this class.
 
 ## Files
 README.md - this file...
+
 CodeBook.md - a detailed description of the tidy data set
+
 run_analysis.R - the script for loading in the raw data, cleaning it, and outputing the tidy data set. A detailed description of how this script functions follows
+
 tidy_data.txt - the output of the run_analysis.R script, contents of this file are described in detail in the CodeBook.md
 
 ## Data Cleaning Process
@@ -27,12 +32,12 @@ Since the "run_analysis.R" script is in the root directory of this repository, w
 Then, load in all the necessary data files to begin processing, including the subject ids, activity data, and raw data (but not the raw raw inertial data) for both the test and training set data.
 
 ### Importing the data: script variables
--test.subject.id - data frame, 1 integer column, 2947 rows, the test data subject ids
--test.data - data frame, 561 numeric columns, 2947 rows, the test data variables
--test.activities - data frame, 1 integer column, 2947 rows, the test data activity list
--train.subject.id - data frame, 1 integer column, 2947 rows, the training data subject ids
--train.data - data frame, 561 numeric columns, 2947 rows, the training data variables
--train.activities - data frame, 1 integer column, 2947 rows, the training data activity list
+- test.subject.id - data frame, 1 integer column, 2947 rows, the test data subject ids
+- test.data - data frame, 561 numeric columns, 2947 rows, the test data variables
+- test.activities - data frame, 1 integer column, 2947 rows, the test data activity list
+- train.subject.id - data frame, 1 integer column, 2947 rows, the training data subject ids
+- train.data - data frame, 561 numeric columns, 2947 rows, the training data variables
+- train.activities - data frame, 1 integer column, 2947 rows, the training data activity list
 
 ### Merging Data
 The rbind() function is used to combine the test and training data, once for each of the subject ids, data variables, and activities lists. Since the subject ids and activities lists data are currently data frames, when merged in this way, the variable name is lost, so the names() function is used to add them back in.
@@ -43,7 +48,9 @@ Rather than use merge(), the data from the different variables are combined usin
 
 ### Merging data: script variables
 subject.id - data frame, 1 integer column, 10299 rows, merged subject ids
+
 activities - data frame, 1 integer column, 10299 rows, merged activities lists
+
 which.set - factor, 10299 rows, 2 levels, key to source of data as test or training set
 
 ### Extract mean and standard deviation variables
@@ -55,6 +62,7 @@ With the proper variables identified, we extract those columns, by index, from t
 
 ### Extract mean and standard deviation variables: script variables
 vars - data frame, 2 columns (1 integer, 1 factor), 561 rows, raw data variable names
+
 columns - integer, 79 rows, indices of raw data variables that are measures of means or standard deviations
 
 ### Activity factor labels
@@ -72,6 +80,7 @@ The clean data set variable names are then applied to the data.
 
 ### Data variable names: script variables
 new.names - character, 79 rows, the clean variable names for the original data variables
+
 data - data frame, 82 columns (1 integer, 2 factor, 79 numeric), the clean data set
 
 ### Create the tidy data set
