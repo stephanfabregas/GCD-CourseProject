@@ -1,9 +1,19 @@
-# Uncomment the following to download the file from the source website
-# and unzip the data into its constituent files
-# The files have already been added to the repository (2014-06-12), so
-# this section can be skipped if utilizing those files
+# Data cleaning script to transform raw data from the Human Activity
+# Recognition Using Smartphones data set according to the instructions
+# provided for this class.
+#
+# Author: Stephan E. Fabregas
+# Class: Getting and Cleaning Data, Coursera, June 2014
+# Note: This R script was created and tested with R 3.1.0
+########################################################################
 
-## data.source <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+# Uncomment the following code to download the file from the source
+# website and unzip the data into its constituent files
+# The files have already been added to the repository, so this section
+# can be skipped if utilizing those files
+
+## data.source <- "https://d396qusza40orc.cloudfront.net/getdata%2F
+#                  projectfiles%2FUCI%20HAR%20Dataset.zip"
 ## zip.file <- "zipfile.zip"
 ## download.file(data.source,zip.file,method="wget")
 ## unzip(zip.file)
